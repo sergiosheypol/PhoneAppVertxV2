@@ -28,6 +28,13 @@ application {
 }
 
 dependencies {
+  // Lombok
+  compileOnly("org.projectlombok:lombok:1.18.16")
+  annotationProcessor ("org.projectlombok:lombok:1.18.16")
+  testCompileOnly ("org.projectlombok:lombok:1.18.16")
+  testAnnotationProcessor ("org.projectlombok:lombok:1.18.16")
+  // End lombok
+
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-rx-java2")
   implementation("io.vertx:vertx-web")
