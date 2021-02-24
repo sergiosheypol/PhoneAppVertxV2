@@ -7,6 +7,9 @@ import io.reactivex.Flowable;
 public class DummyCatalogRepository implements CatalogRepository {
   @Override
   public Flowable<PhoneModel> getAll() {
-    return null;
+    return Flowable.just(PhoneData.getSamsung(),
+      PhoneData.getIphone(),
+      PhoneData.getXiaomi(),
+      PhoneData.getHuawei());
   }
 }
