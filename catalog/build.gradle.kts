@@ -18,7 +18,7 @@ val vertxVersion = "4.0.2"
 val junitJupiterVersion = "5.7.0"
 
 val mainVerticleName = "com.mm.catalog.CatalogVerticle"
-val launcherClassName = "io.vertx.core.Launcher"
+val launcherClassName = "com.mm.catalog.App"
 
 val watchForChange = "src/**/*"
 val doOnChange = "${projectDir}/gradlew classes"
@@ -43,6 +43,8 @@ dependencies {
   implementation("io.vertx:vertx-web")
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+  implementation("io.vertx:vertx-config:$vertxVersion")
+  implementation("io.vertx:vertx-config-yaml:$vertxVersion")
 }
 
 java {
