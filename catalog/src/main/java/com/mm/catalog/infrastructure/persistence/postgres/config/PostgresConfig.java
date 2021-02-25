@@ -5,20 +5,28 @@ import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.pgclient.PgPool;
 import io.vertx.sqlclient.PoolOptions;
 
-public final class PostgresConfig {
-  public static PgPool init() {
-    // Connect options
-    PgConnectOptions connectOptions = new PgConnectOptions()
+public class PostgresConfig {
+
+  private final PgPool pgClient;
+
+  public PostgresConfig() {
+    this.pgClient = PgPool.pool(Vertx.currentContext().owner(), this.getConnectOptions(), this.getPoolOptions());
+  }
+
+  public PgPool getPgClient() {
+    return pgClient;
+  }
+
+  private PgConnectOptions getConnectOptions() {
+    return new PgConnectOptions()
       .setPort(5432)
       .setHost("localhost")
       .setDatabase("mm")
       .setUser("mm")
       .setPassword("mm");
+  }
 
-    // Pool options
-    PoolOptions poolOptions = new PoolOptions().setMaxSize(5);
-
-    // Create the client pool
-    return PgPool.pool(Vertx.currentContext().owner(), connectOptions, poolOptions);
+  private PoolOptions getPoolOptions() {
+    return new PoolOptions().setMaxSize(5);
   }
 }

@@ -7,28 +7,20 @@ import com.mm.catalog.infrastructure.persistence.dummy.PhoneData;
 import io.reactivex.Flowable;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
-import io.vertx.reactivex.pgclient.PgPool;
 
 public class PostgresCatalogRepository implements CatalogRepository {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(PostgresCatalogRepository.class);
 
-  private final PgPool pgClient;
-
-  public PostgresCatalogRepository() {
-    this.pgClient = IoC.getInstance().pgClient;
-  }
-
   @Override
   public Flowable<PhoneModel> getAll() {
-
-    pgClient
+    IoC.getInstance().postgres.getPgClient()
       .query("SELECT * FROM catalog")
       .rxExecute()
       .subscribe(rows -> {
         LOGGER.info("Got " + rows.size() + " rows ");
         // Now close the pool
-        pgClient.close();
+        IoC.getInstance().postgres.getPgClient().close();
       }, err -> {
         LOGGER.error("Error while retrieving rows", err);
       });
