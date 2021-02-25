@@ -1,5 +1,6 @@
 package com.mm.catalog.infrastructure.persistence.postgres.config;
 
+import com.mm.catalog.Properties;
 import io.vertx.pgclient.PgConnectOptions;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.pgclient.PgPool;
@@ -19,11 +20,11 @@ public class PostgresConfig {
 
   private PgConnectOptions getConnectOptions() {
     return new PgConnectOptions()
-      .setPort(5432)
-      .setHost("localhost")
-      .setDatabase("mm")
-      .setUser("mm")
-      .setPassword("mm");
+      .setPort(Properties.getInstance().getDBPort())
+      .setHost(Properties.getInstance().getDBHost())
+      .setDatabase(Properties.getInstance().getDBName())
+      .setUser(Properties.getInstance().getDBUser())
+      .setPassword(Properties.getInstance().getDBPassword());
   }
 
   private PoolOptions getPoolOptions() {

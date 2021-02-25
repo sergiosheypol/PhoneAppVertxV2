@@ -7,6 +7,9 @@ import io.vertx.core.json.JsonObject;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
+/**
+ * This class violates the Single Responsibility Principle
+ */
 public class Properties {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Properties.class);
@@ -42,8 +45,32 @@ public class Properties {
     return (Integer) this.getServerProperties().getValue("port");
   }
 
+  public String getDBHost() {
+    return (String) this.getDBProperties().getValue("host");
+  }
+
+  public Integer getDBPort() {
+    return (Integer) this.getDBProperties().getValue("port");
+  }
+
+  public String getDBName() {
+    return (String) this.getDBProperties().getValue("name");
+  }
+
+  public String getDBUser() {
+    return (String) this.getDBProperties().getValue("user");
+  }
+
+  public String getDBPassword() {
+    return (String) this.getDBProperties().getValue("password");
+  }
+
   private JsonObject getServerProperties() {
     return (JsonObject) config.getValue("server");
+  }
+
+  private JsonObject getDBProperties() {
+    return (JsonObject) config.getValue("db");
   }
 
 }
