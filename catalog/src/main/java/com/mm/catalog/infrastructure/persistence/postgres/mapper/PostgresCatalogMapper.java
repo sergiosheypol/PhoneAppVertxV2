@@ -1,4 +1,4 @@
-package com.mm.catalog.infrastructure.persistence.mapper;
+package com.mm.catalog.infrastructure.persistence.postgres.mapper;
 
 import com.mm.catalog.domain.model.PhoneModel;
 import com.mm.catalog.domain.model.PhonePriceModel;
@@ -6,7 +6,7 @@ import io.vertx.core.json.JsonObject;
 
 import java.util.UUID;
 
-public class PhoneRepositoryMapper {
+public class PostgresCatalogMapper {
   public PhoneModel toModel(final JsonObject json) {
     return PhoneModel.builder()
       .id(UUID.fromString(json.getString("id")))

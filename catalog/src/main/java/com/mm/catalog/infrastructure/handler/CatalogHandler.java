@@ -1,6 +1,7 @@
 package com.mm.catalog.infrastructure.handler;
 
-import com.mm.catalog.IoC;
+import com.mm.catalog.application.getcatalog.CatalogService;
+import com.mm.catalog.infrastructure.handler.mapper.PhoneResourceMapper;
 import com.mm.catalog.infrastructure.handler.resource.PhoneResource;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
@@ -13,11 +14,19 @@ import java.util.concurrent.Callable;
 
 public class CatalogHandler {
 
+  private final CatalogService service;
+  private final PhoneResourceMapper mapper;
+
+  public CatalogHandler(final CatalogService service, final PhoneResourceMapper mapper) {
+    this.service = service;
+    this.mapper = mapper;
+  }
+
   private static final Logger LOGGER = LoggerFactory.getLogger(CatalogHandler.class);
 
   public void getCatalog(final RoutingContext ctx) {
-    IoC.getInstance().service.getAll()
-      .map(IoC.getInstance().resourceMapper::toResource)
+    this.service.getAll()
+      .map(mapper::toResource)
       .collect((Callable<ArrayList<PhoneResource>>) ArrayList::new, List::add)
       .subscribe(l -> {
         LOGGER.info("Catalog retrieved successfully");
