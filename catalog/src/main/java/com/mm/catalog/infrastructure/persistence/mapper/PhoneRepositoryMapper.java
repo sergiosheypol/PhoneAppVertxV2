@@ -15,7 +15,7 @@ public class PhoneRepositoryMapper {
       .img(json.getString("img"))
       .price(PhonePriceModel.builder()
         .value(json.getDouble("price"))
-        .currency("euro")
+        .currency(json.getString("currencyname"))
         .build())
       .build();
   }

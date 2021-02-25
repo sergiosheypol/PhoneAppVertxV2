@@ -15,11 +15,12 @@ public class PostgresCatalogRepository implements CatalogRepository {
   @Override
   public Flowable<PhoneModel> getAll() {
     return IoC.getInstance().postgres.getPgClient()
-      .query("SELECT * FROM catalog")
+      .query(QueryGenerator.getAll())
       .rxExecute()
       .doOnSuccess(r -> LOGGER.info(String.format("Retrieved {%s} rows from {catalog}", r.size())))
       .flattenAsFlowable(e -> e)
       .map(Row::toJson)
       .map(IoC.getInstance().repositoryMapper::toModel);
   }
+
 }
