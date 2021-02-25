@@ -20,7 +20,7 @@ public class App {
     // Read properties
     config(vertx).subscribe(json -> {
       // Configure properties
-      Config.getInstance().init(json);
+      Properties.getInstance().init(json);
       // Deploy verticle
       vertx.deployVerticle(new CatalogVerticle());
     });

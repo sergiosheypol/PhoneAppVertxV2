@@ -1,4 +1,4 @@
-package com.mm.catalog.infrastructure.persistence;
+package com.mm.catalog.infrastructure.persistence.dummy;
 
 import com.mm.catalog.domain.model.PhoneModel;
 import com.mm.catalog.domain.repository.CatalogRepository;

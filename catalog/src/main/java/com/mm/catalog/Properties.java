@@ -7,21 +7,21 @@ import io.vertx.core.json.JsonObject;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-public class Config {
+public class Properties {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Config.class);
-  private static Config instance = null;
+  private static final Logger LOGGER = LoggerFactory.getLogger(Properties.class);
+  private static Properties instance = null;
 
   public JsonObject config;
 
-  public static synchronized Config getInstance() {
+  public static synchronized Properties getInstance() {
     if(isNull(instance)) {
-      instance = new Config();
+      instance = new Properties();
     }
     return instance;
   }
 
-  private Config() {
+  private Properties() {
 
   }
 
