@@ -17,7 +17,7 @@ public class CatalogHandler {
 
   public void getCatalog(final RoutingContext ctx) {
     IoC.getInstance().service.getAll()
-      .map(IoC.getInstance().phoneResourceMapper::toResource)
+      .map(IoC.getInstance().resourceMapper::toResource)
       .collect((Callable<ArrayList<PhoneResource>>) ArrayList::new, List::add)
       .subscribe(l -> {
         LOGGER.info("Catalog retrieved successfully");

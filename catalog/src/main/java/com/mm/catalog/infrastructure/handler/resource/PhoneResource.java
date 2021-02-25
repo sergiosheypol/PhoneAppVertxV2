@@ -1,13 +1,15 @@
 package com.mm.catalog.infrastructure.handler.resource;
 
+import java.util.UUID;
+
 public class PhoneResource {
-  private final Long id;
+  private UUID id;
   private final String name;
   private final String img;
   private final String description;
   private final PhonePriceResource price;
 
-  public PhoneResource(Long id, String name, String img, String description, PhonePriceResource price) {
+  public PhoneResource(UUID id, String name, String img, String description, PhonePriceResource price) {
     this.id = id;
     this.name = name;
     this.img = img;
@@ -19,7 +21,7 @@ public class PhoneResource {
     return new PhoneResourceBuilder();
   }
 
-  public Long getId() {
+  public UUID getId() {
     return this.id;
   }
 
@@ -40,7 +42,7 @@ public class PhoneResource {
   }
 
   public static class PhoneResourceBuilder {
-    private Long id;
+    private UUID id;
     private String name;
     private String img;
     private String description;
@@ -49,7 +51,7 @@ public class PhoneResource {
     PhoneResourceBuilder() {
     }
 
-    public PhoneResourceBuilder id(Long id) {
+    public PhoneResourceBuilder id(UUID id) {
       this.id = id;
       return this;
     }

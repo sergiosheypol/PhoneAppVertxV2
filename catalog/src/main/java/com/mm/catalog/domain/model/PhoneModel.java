@@ -1,13 +1,15 @@
 package com.mm.catalog.domain.model;
 
+import java.util.UUID;
+
 public final class PhoneModel {
-    private final Long id;
+    private final UUID id;
     private final String name;
     private final String img;
     private final String description;
     private final PhonePriceModel price;
 
-  public PhoneModel(Long id, String name, String img, String description, PhonePriceModel price) {
+  public PhoneModel(UUID id, String name, String img, String description, PhonePriceModel price) {
     this.id = id;
     this.name = name;
     this.img = img;
@@ -19,7 +21,7 @@ public final class PhoneModel {
     return new PhoneModelBuilder();
   }
 
-  public Long getId() {
+  public UUID getId() {
     return this.id;
   }
 
@@ -40,7 +42,7 @@ public final class PhoneModel {
   }
 
   public static class PhoneModelBuilder {
-    private Long id;
+    private UUID id;
     private String name;
     private String img;
     private String description;
@@ -49,7 +51,7 @@ public final class PhoneModel {
     PhoneModelBuilder() {
     }
 
-    public PhoneModelBuilder id(Long id) {
+    public PhoneModelBuilder id(UUID id) {
       this.id = id;
       return this;
     }
