@@ -15,7 +15,7 @@ public class CatalogVerticle extends AbstractVerticle {
 
     HttpServer httpServer = vertx.createHttpServer();
 
-    httpServer.requestHandler(IoC.getInstance().router.configureRouting(vertx))
+    httpServer.requestHandler(IoC.getInstance().router.configureRouting())
       .rxListen(Properties.getInstance().getPort())
       .subscribe(server -> LOGGER.info(String.format("Server listening on port {%s}", server.actualPort())),
         failure -> LOGGER.error(failure.getMessage()));

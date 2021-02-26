@@ -14,6 +14,8 @@ import java.util.concurrent.Callable;
 
 public class CatalogHandler {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(CatalogHandler.class);
+
   private final CatalogService service;
   private final PhoneResourceMapper mapper;
 
@@ -21,8 +23,6 @@ public class CatalogHandler {
     this.service = service;
     this.mapper = mapper;
   }
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(CatalogHandler.class);
 
   public void getCatalog(final RoutingContext ctx) {
     this.service.getAll()

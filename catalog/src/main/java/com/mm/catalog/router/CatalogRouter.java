@@ -12,8 +12,8 @@ public class CatalogRouter {
     this.handler = handler;
   }
 
-  public Router configureRouting(final Vertx vertx) {
-    Router router = Router.router(vertx);
+  public Router configureRouting() {
+    Router router = Router.router(Vertx.currentContext().owner());
     router.get("/catalog").handler(handler::getCatalog);
     return router;
   }
