@@ -1,0 +1,28 @@
+= Catalog
+
+image:https://img.shields.io/badge/vert.x-4.0.2-purple.svg[link="https://vertx.io"]
+
+The app starts on the port 80
+
+== Endpoints
+* GET: /catalog
+
+== Prerequisites
+Check ``db`` repo to execute the required migrations
+
+== Building
+
+To launch your tests:
+```
+./gradlew clean test
+```
+
+To package your application:
+```
+./gradlew clean assemble
+```
+
+To run your application:
+```
+./gradlew clean run
+```

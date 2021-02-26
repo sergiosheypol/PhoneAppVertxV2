@@ -1,0 +1,9 @@
+= DB
+
+== How to execute migrations
+Simply run:
+```
+docker-compose up
+```
+
+This will boot a Postgres container and will autoexecute the migrations through a Flyway container
