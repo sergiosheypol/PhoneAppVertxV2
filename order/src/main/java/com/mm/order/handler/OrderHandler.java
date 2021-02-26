@@ -8,12 +8,12 @@ public class OrderHandler {
 
   private final OrderService service;
 
-  public OrderHandler(OrderService service) {
+  public OrderHandler(final OrderService service) {
     this.service = service;
   }
 
   public void purchase(final RoutingContext ctx) {
-    service.purchase()
+    this.service.purchase()
       .subscribe(order -> ctx.response()
       .putHeader("Content-Type", "application/json")
       .end(Json.encodePrettily(order)));

@@ -38,11 +38,35 @@ public class Properties {
     }
   }
 
+  public Integer getPort() {
+    return (Integer) this.getServerProperties().getValue("port");
+  }
+
+  public String getDBHost() {
+    return (String) this.getDBProperties().getValue("host");
+  }
+
+  public Integer getDBPort() {
+    return (Integer) this.getDBProperties().getValue("port");
+  }
+
+  public String getDBName() {
+    return (String) this.getDBProperties().getValue("name");
+  }
+
+  public String getDBUser() {
+    return (String) this.getDBProperties().getValue("user");
+  }
+
+  public String getDBPassword() {
+    return (String) this.getDBProperties().getValue("password");
+  }
+
   private JsonObject getServerProperties() {
     return (JsonObject) config.getValue("server");
   }
 
-  public Integer getPort() {
-    return (Integer) this.getServerProperties().getValue("port");
+  private JsonObject getDBProperties() {
+    return (JsonObject) config.getValue("db");
   }
 }

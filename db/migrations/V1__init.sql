@@ -1,9 +1,9 @@
-CREATE TABLE currency (
+CREATE TABLE "currency" (
   id SERIAL NOT NULL PRIMARY KEY,
   name varchar(15) NOT NULL
 );
 
-CREATE TABLE catalog (
+CREATE TABLE "catalog" (
   id UUID NOT NULL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   img VARCHAR(200) NOT NULL,
