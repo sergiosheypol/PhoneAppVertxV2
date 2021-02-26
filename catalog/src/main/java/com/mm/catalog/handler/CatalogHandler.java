@@ -1,8 +1,8 @@
-package com.mm.catalog.infrastructure.handler;
+package com.mm.catalog.handler;
 
-import com.mm.catalog.application.getcatalog.CatalogService;
-import com.mm.catalog.infrastructure.handler.mapper.PhoneResourceMapper;
-import com.mm.catalog.infrastructure.handler.resource.PhoneResource;
+import com.mm.catalog.service.CatalogService;
+import com.mm.catalog.handler.mapper.PhoneResourceMapper;
+import com.mm.catalog.handler.resource.PhoneResource;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.core.json.Json;

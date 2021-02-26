@@ -1,9 +1,9 @@
-package com.mm.catalog.infrastructure.persistence.postgres;
+package com.mm.catalog.repository.postgres;
 
-import com.mm.catalog.domain.model.PhoneModel;
-import com.mm.catalog.domain.repository.CatalogRepository;
-import com.mm.catalog.infrastructure.persistence.postgres.mapper.PostgresCatalogMapper;
-import com.mm.catalog.infrastructure.persistence.postgres.config.PostgresConfig;
+import com.mm.catalog.model.PhoneModel;
+import com.mm.catalog.repository.CatalogRepository;
+import com.mm.catalog.repository.postgres.mapper.PostgresCatalogMapper;
+import com.mm.catalog.config.PostgresConfig;
 import io.reactivex.Flowable;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;

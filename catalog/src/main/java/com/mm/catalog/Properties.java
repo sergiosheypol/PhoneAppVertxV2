@@ -7,9 +7,6 @@ import io.vertx.core.json.JsonObject;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * This class violates the Single Responsibility Principle
- */
 public class Properties {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Properties.class);

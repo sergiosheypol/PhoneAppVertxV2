@@ -1,6 +1,6 @@
-package com.mm.catalog.infrastructure.router;
+package com.mm.catalog.router;
 
-import com.mm.catalog.infrastructure.handler.CatalogHandler;
+import com.mm.catalog.handler.CatalogHandler;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.ext.web.Router;
 

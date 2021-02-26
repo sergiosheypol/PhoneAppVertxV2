@@ -1,8 +1,8 @@
-package com.mm.catalog.infrastructure.handler.mapper;
+package com.mm.catalog.handler.mapper;
 
-import com.mm.catalog.domain.model.PhoneModel;
-import com.mm.catalog.infrastructure.handler.resource.PhonePriceResource;
-import com.mm.catalog.infrastructure.handler.resource.PhoneResource;
+import com.mm.catalog.model.PhoneModel;
+import com.mm.catalog.handler.resource.PhonePriceResource;
+import com.mm.catalog.handler.resource.PhoneResource;
 
 public class PhoneResourceMapper {
   public PhoneResource toResource(final PhoneModel model) {

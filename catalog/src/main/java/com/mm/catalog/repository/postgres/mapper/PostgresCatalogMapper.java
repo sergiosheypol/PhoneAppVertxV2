@@ -1,7 +1,7 @@
-package com.mm.catalog.infrastructure.persistence.postgres.mapper;
+package com.mm.catalog.repository.postgres.mapper;
 
-import com.mm.catalog.domain.model.PhoneModel;
-import com.mm.catalog.domain.model.PhonePriceModel;
+import com.mm.catalog.model.PhoneModel;
+import com.mm.catalog.model.PhonePriceModel;
 import io.vertx.core.json.JsonObject;
 
 import java.util.UUID;

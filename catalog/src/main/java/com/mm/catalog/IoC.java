@@ -1,17 +1,17 @@
 package com.mm.catalog;
 
-import com.mm.catalog.application.getcatalog.CatalogService;
-import com.mm.catalog.domain.repository.CatalogRepository;
-import com.mm.catalog.infrastructure.handler.CatalogHandler;
-import com.mm.catalog.infrastructure.handler.mapper.PhoneResourceMapper;
-import com.mm.catalog.infrastructure.persistence.postgres.mapper.PostgresCatalogMapper;
-import com.mm.catalog.infrastructure.persistence.postgres.PostgresCatalogRepository;
-import com.mm.catalog.infrastructure.persistence.postgres.config.PostgresConfig;
-import com.mm.catalog.infrastructure.router.CatalogRouter;
+import com.mm.catalog.service.CatalogService;
+import com.mm.catalog.repository.CatalogRepository;
+import com.mm.catalog.handler.CatalogHandler;
+import com.mm.catalog.handler.mapper.PhoneResourceMapper;
+import com.mm.catalog.repository.postgres.mapper.PostgresCatalogMapper;
+import com.mm.catalog.repository.postgres.PostgresCatalogRepository;
+import com.mm.catalog.config.PostgresConfig;
+import com.mm.catalog.router.CatalogRouter;
 
 import static java.util.Objects.isNull;
 
-public class IoC {
+public final class IoC {
   public CatalogService service;
   public CatalogRepository repository;
   public CatalogHandler handler;

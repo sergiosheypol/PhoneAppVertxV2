@@ -1,7 +1,7 @@
-package com.mm.catalog.infrastructure.persistence.dummy;
+package com.mm.catalog.repository.dummy;
 
-import com.mm.catalog.domain.model.PhoneModel;
-import com.mm.catalog.domain.repository.CatalogRepository;
+import com.mm.catalog.model.PhoneModel;
+import com.mm.catalog.repository.CatalogRepository;
 import io.reactivex.Flowable;
 
 public class DummyCatalogRepository implements CatalogRepository {

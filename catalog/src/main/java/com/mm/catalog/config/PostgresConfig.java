@@ -1,4 +1,4 @@
-package com.mm.catalog.infrastructure.persistence.postgres.config;
+package com.mm.catalog.config;
 
 import com.mm.catalog.Properties;
 import io.vertx.pgclient.PgConnectOptions;

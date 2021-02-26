@@ -1,4 +1,4 @@
-package com.mm.catalog.domain.model;
+package com.mm.catalog.model;
 
 import java.util.UUID;
 

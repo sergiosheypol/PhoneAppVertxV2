@@ -1,4 +1,4 @@
-package com.mm.catalog.infrastructure.handler.resource;
+package com.mm.catalog.handler.resource;
 
 public class PhonePriceResource {
   private final String currency;

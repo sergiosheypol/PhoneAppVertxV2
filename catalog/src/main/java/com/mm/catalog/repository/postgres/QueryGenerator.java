@@ -1,4 +1,4 @@
-package com.mm.catalog.infrastructure.persistence.postgres;
+package com.mm.catalog.repository.postgres;
 
 public final class QueryGenerator {
   public static String getAll() {

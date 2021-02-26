@@ -1,4 +1,4 @@
-package com.mm.catalog.domain.model;
+package com.mm.catalog.model;
 
 public final class PhonePriceModel {
     private final String currency;

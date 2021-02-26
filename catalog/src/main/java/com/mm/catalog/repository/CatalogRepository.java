@@ -1,6 +1,6 @@
-package com.mm.catalog.domain.repository;
+package com.mm.catalog.repository;
 
-import com.mm.catalog.domain.model.PhoneModel;
+import com.mm.catalog.model.PhoneModel;
 import io.reactivex.Flowable;
 
 public interface CatalogRepository {
