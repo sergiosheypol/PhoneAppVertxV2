@@ -1,21 +1,40 @@
 package com.mm.order.handler;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mm.order.handler.resource.OrderRQResource;
+import com.mm.order.mapper.OrderMapper;
 import com.mm.order.service.OrderService;
+import io.reactivex.Single;
+import io.vertx.core.impl.logging.Logger;
+import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.core.json.Json;
+import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.ext.web.RoutingContext;
 
 public class OrderHandler {
 
-  private final OrderService service;
+  private static final Logger LOGGER = LoggerFactory.getLogger(OrderHandler.class);
 
-  public OrderHandler(final OrderService service) {
+  private final OrderService service;
+  private final ObjectMapper objectMapper;
+  private final OrderMapper mapper;
+
+
+  public OrderHandler(final OrderService service, final ObjectMapper objectMapper, final OrderMapper mapper) {
     this.service = service;
+    this.objectMapper = objectMapper;
+    this.mapper = mapper;
   }
 
   public void purchase(final RoutingContext ctx) {
-    this.service.purchase()
-      .subscribe(order -> ctx.response()
-      .putHeader("Content-Type", "application/json")
-      .end(Json.encodePrettily(order)));
+    Single.fromCallable(ctx::getBodyAsJson)
+      .map(JsonObject::getMap)
+      .map(m -> objectMapper.convertValue(m, OrderRQResource.class))
+      .map(mapper::toModel)
+      .flatMap(service::purchase)
+      .map(mapper::toResource)
+      .subscribe(rs -> ctx.response()
+        .putHeader("Content-Type", "application/json")
+        .end(Json.encodePrettily(rs)));
   }
 }
