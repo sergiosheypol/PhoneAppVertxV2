@@ -1,5 +1,3 @@
-CREATE SCHEMA mm;
-
 CREATE TABLE currency (
   id SERIAL NOT NULL PRIMARY KEY,
   name varchar(15) NOT NULL
