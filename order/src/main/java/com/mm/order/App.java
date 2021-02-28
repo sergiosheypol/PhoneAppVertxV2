@@ -3,6 +3,7 @@ package com.mm.order;
 import io.reactivex.Single;
 import io.vertx.config.ConfigRetrieverOptions;
 import io.vertx.config.ConfigStoreOptions;
+import io.vertx.core.DeploymentOptions;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.core.json.JsonObject;
@@ -19,10 +20,10 @@ public class App {
 
     // Read properties
     config(vertx).subscribe(json -> {
-      // Configure properties
-      Properties.getInstance().init(json);
       // Deploy verticle
-      vertx.deployVerticle(new OrderVerticle());
+      vertx.rxDeployVerticle(new OrderVerticle(), new DeploymentOptions().setConfig(json))
+        .subscribe(id -> LOGGER.info(String.format("Verticle with id {%s} deployed successfully", id)),
+          err -> LOGGER.error("Error deploying verticle", err));
     });
 
   }

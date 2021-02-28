@@ -11,13 +11,19 @@ public class OrderVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(OrderVerticle.class);
 
   @Override
-  public void start(Promise<Void> startPromise) {
+  public void start(final Promise<Void> startPromise) {
 
     HttpServer httpServer = vertx.createHttpServer();
 
     httpServer.requestHandler(IoC.getInstance().router.configureRouting())
-      .rxListen(Properties.getInstance().getPort())
-      .subscribe(server -> LOGGER.info(String.format("Server listening on port {%s}", server.actualPort())),
-        failure -> LOGGER.error(failure.getMessage()));
+      .rxListen(Properties.getPort())
+      .subscribe(server -> {
+          LOGGER.info(String.format("Server listening on port {%s}", server.actualPort()));
+          startPromise.complete();
+        },
+        failure -> {
+          LOGGER.error(failure.getMessage());
+          startPromise.fail(failure);
+        });
   }
 }

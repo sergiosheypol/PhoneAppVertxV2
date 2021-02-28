@@ -20,11 +20,11 @@ public class PostgresConfig {
 
   private PgConnectOptions getConnectOptions() {
     return new PgConnectOptions()
-      .setPort(Properties.getInstance().getDBPort())
-      .setHost(Properties.getInstance().getDBHost())
-      .setDatabase(Properties.getInstance().getDBName())
-      .setUser(Properties.getInstance().getDBUser())
-      .setPassword(Properties.getInstance().getDBPassword());
+      .setPort(Properties.getDBPort())
+      .setHost(Properties.getDBHost())
+      .setDatabase(Properties.getDBName())
+      .setUser(Properties.getDBUser())
+      .setPassword(Properties.getDBPassword());
   }
 
   private PoolOptions getPoolOptions() {
