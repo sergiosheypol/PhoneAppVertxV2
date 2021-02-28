@@ -17,8 +17,13 @@ public class CatalogVerticle extends AbstractVerticle {
 
     httpServer.requestHandler(IoC.getInstance().router.configureRouting())
       .rxListen(Properties.getPort())
-      .subscribe(server -> LOGGER.info(String.format("Server listening on port {%s}", server.actualPort())),
-        failure -> LOGGER.error(failure.getMessage()));
-
+      .subscribe(server -> {
+          LOGGER.info(String.format("Server listening on port {%s}", server.actualPort()));
+          startPromise.complete();
+        },
+        failure -> {
+          LOGGER.error(failure.getMessage());
+          startPromise.fail(failure);
+        });
   }
 }
