@@ -1,0 +1,6 @@
+rootProject.name = "PhoneAppVertxV2"
+
+include 'catalog'
+include 'order'
+include 'core'
+

@@ -38,6 +38,9 @@ dependencies {
   // Jackson
   implementation ("com.fasterxml.jackson.core", "jackson-databind",  "2.0.1")
 
+  //Internal
+  compile(project(":core"))
+
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-rx-java2")
   implementation("io.vertx:vertx-web")
