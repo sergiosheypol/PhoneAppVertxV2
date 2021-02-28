@@ -1,13 +1,13 @@
 package com.mm.order;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mm.order.config.PostgresConfig;
 import com.mm.order.handler.OrderHandler;
 import com.mm.order.mapper.OrderMapper;
 import com.mm.order.repository.OrderRepository;
 import com.mm.order.repository.PostgresOrderRepository;
 import com.mm.order.router.OrderRouter;
 import com.mm.order.service.OrderService;
+import com.mm.postgres.PostgresConfig;
 
 import static java.util.Objects.isNull;
 

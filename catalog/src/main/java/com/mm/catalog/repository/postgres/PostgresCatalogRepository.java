@@ -3,7 +3,7 @@ package com.mm.catalog.repository.postgres;
 import com.mm.catalog.model.PhoneModel;
 import com.mm.catalog.repository.CatalogRepository;
 import com.mm.catalog.repository.postgres.mapper.PostgresCatalogMapper;
-import com.mm.catalog.config.PostgresConfig;
+import com.mm.postgres.PostgresConfig;
 import io.reactivex.Flowable;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;

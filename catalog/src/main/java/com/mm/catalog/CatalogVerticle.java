@@ -1,5 +1,6 @@
 package com.mm.catalog;
 
+import com.mm.properties.ConfigProperties;
 import io.vertx.core.Promise;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
@@ -16,7 +17,7 @@ public class CatalogVerticle extends AbstractVerticle {
     HttpServer httpServer = vertx.createHttpServer();
 
     httpServer.requestHandler(IoC.getInstance().router.configureRouting())
-      .rxListen(Properties.getPort())
+      .rxListen(ConfigProperties.getPort())
       .subscribe(server -> {
           LOGGER.info(String.format("Server listening on port {%s}", server.actualPort()));
           startPromise.complete();

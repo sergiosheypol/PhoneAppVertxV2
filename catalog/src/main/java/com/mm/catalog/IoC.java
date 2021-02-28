@@ -1,14 +1,13 @@
 package com.mm.catalog;
 
-import com.mm.catalog.service.CatalogService;
-import com.mm.catalog.repository.CatalogRepository;
+import com.mm.postgres.PostgresConfig;
 import com.mm.catalog.handler.CatalogHandler;
 import com.mm.catalog.handler.mapper.PhoneResourceMapper;
-import com.mm.catalog.repository.postgres.mapper.PostgresCatalogMapper;
+import com.mm.catalog.repository.CatalogRepository;
 import com.mm.catalog.repository.postgres.PostgresCatalogRepository;
-import com.mm.catalog.config.PostgresConfig;
+import com.mm.catalog.repository.postgres.mapper.PostgresCatalogMapper;
 import com.mm.catalog.router.CatalogRouter;
-import io.vertx.reactivex.core.Vertx;
+import com.mm.catalog.service.CatalogService;
 
 import static java.util.Objects.isNull;
 

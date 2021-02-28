@@ -1,6 +1,6 @@
-package com.mm.catalog.config;
+package com.mm.postgres;
 
-import com.mm.catalog.Properties;
+import com.mm.properties.ConfigProperties;
 import io.vertx.pgclient.PgConnectOptions;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.pgclient.PgPool;
@@ -20,11 +20,11 @@ public class PostgresConfig {
 
   private PgConnectOptions getConnectOptions() {
     return new PgConnectOptions()
-      .setPort(Properties.getDBPort())
-      .setHost(Properties.getDBHost())
-      .setDatabase(Properties.getDBName())
-      .setUser(Properties.getDBUser())
-      .setPassword(Properties.getDBPassword());
+      .setPort(ConfigProperties.getDBPort())
+      .setHost(ConfigProperties.getDBHost())
+      .setDatabase(ConfigProperties.getDBName())
+      .setUser(ConfigProperties.getDBUser())
+      .setPassword(ConfigProperties.getDBPassword());
   }
 
   private PoolOptions getPoolOptions() {

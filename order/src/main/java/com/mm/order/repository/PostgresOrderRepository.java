@@ -1,7 +1,7 @@
 package com.mm.order.repository;
 
-import com.mm.order.config.PostgresConfig;
 import com.mm.order.model.OrderModel;
+import com.mm.postgres.PostgresConfig;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.reactivex.sqlclient.Tuple;

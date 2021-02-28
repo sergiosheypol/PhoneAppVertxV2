@@ -1,9 +1,9 @@
-package com.mm.order;
+package com.mm.properties;
 
 import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.core.Vertx;
 
-public final class Properties {
+public final class ConfigProperties {
 
   public static Integer getPort() {
     return (Integer) getServerProperties().getValue("port");
