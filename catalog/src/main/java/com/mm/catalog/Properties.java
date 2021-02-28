@@ -1,73 +1,40 @@
 package com.mm.catalog;
 
-import io.vertx.core.impl.logging.Logger;
-import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.core.json.JsonObject;
+import io.vertx.reactivex.core.Vertx;
 
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+public final class Properties {
 
-public class Properties {
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(Properties.class);
-  private static Properties instance = null;
-
-  public JsonObject config;
-
-  public static synchronized Properties getInstance() {
-    if(isNull(instance)) {
-      instance = new Properties();
-    }
-    return instance;
+  public static Integer getPort() {
+    return (Integer) getServerProperties().getValue("port");
   }
 
-  private Properties() {
-
+  public static String getDBHost() {
+    return (String) getDBProperties().getValue("host");
   }
 
-  public void init(JsonObject configJson) {
-    this.config = configJson;
-    this.log();
+  public static Integer getDBPort() {
+    return (Integer) getDBProperties().getValue("port");
   }
 
-  private void log() {
-    if(nonNull(config)) {
-      LOGGER.info("Properties -- OK");
-    } else {
-      LOGGER.error("Unable to load properties");
-    }
+  public static String getDBName() {
+    return (String) getDBProperties().getValue("name");
   }
 
-  public Integer getPort() {
-    return (Integer) this.getServerProperties().getValue("port");
+  public static String getDBUser() {
+    return (String) getDBProperties().getValue("user");
   }
 
-  public String getDBHost() {
-    return (String) this.getDBProperties().getValue("host");
+  public static String getDBPassword() {
+    return (String) getDBProperties().getValue("password");
   }
 
-  public Integer getDBPort() {
-    return (Integer) this.getDBProperties().getValue("port");
+  private static JsonObject getServerProperties() {
+    return (JsonObject) Vertx.currentContext().config().getValue("server");
   }
 
-  public String getDBName() {
-    return (String) this.getDBProperties().getValue("name");
-  }
-
-  public String getDBUser() {
-    return (String) this.getDBProperties().getValue("user");
-  }
-
-  public String getDBPassword() {
-    return (String) this.getDBProperties().getValue("password");
-  }
-
-  private JsonObject getServerProperties() {
-    return (JsonObject) config.getValue("server");
-  }
-
-  private JsonObject getDBProperties() {
-    return (JsonObject) config.getValue("db");
+  private static JsonObject getDBProperties() {
+    return (JsonObject) Vertx.currentContext().config().getValue("db");
   }
 
 }

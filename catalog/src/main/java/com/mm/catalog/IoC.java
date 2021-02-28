@@ -8,6 +8,7 @@ import com.mm.catalog.repository.postgres.mapper.PostgresCatalogMapper;
 import com.mm.catalog.repository.postgres.PostgresCatalogRepository;
 import com.mm.catalog.config.PostgresConfig;
 import com.mm.catalog.router.CatalogRouter;
+import io.vertx.reactivex.core.Vertx;
 
 import static java.util.Objects.isNull;
 

@@ -3,6 +3,7 @@ package com.mm.catalog;
 import io.reactivex.Single;
 import io.vertx.config.ConfigRetrieverOptions;
 import io.vertx.config.ConfigStoreOptions;
+import io.vertx.core.DeploymentOptions;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.core.json.JsonObject;
@@ -19,10 +20,8 @@ public class App {
 
     // Read properties
     config(vertx).subscribe(json -> {
-      // Configure properties
-      Properties.getInstance().init(json);
       // Deploy verticle
-      vertx.deployVerticle(new CatalogVerticle());
+      vertx.deployVerticle(new CatalogVerticle(), new DeploymentOptions().setConfig(json));
     });
 
   }
