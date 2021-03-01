@@ -6,3 +6,4 @@ db:
   name: mm
   user: mm
   password: mm
+dummy: false

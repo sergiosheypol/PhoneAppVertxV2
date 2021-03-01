@@ -1,7 +1,7 @@
 package com.mm.catalog.handler;
 
 import com.mm.catalog.service.CatalogService;
-import com.mm.catalog.handler.mapper.PhoneResourceMapper;
+import com.mm.catalog.mapper.PhoneResourceMapper;
 import com.mm.catalog.handler.resource.PhoneResource;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;

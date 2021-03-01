@@ -3,7 +3,14 @@ package com.mm.properties;
 import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.core.Vertx;
 
+import java.util.Optional;
+
 public final class ConfigProperties {
+
+  public static Boolean isDummyEnabled() {
+    return Optional.ofNullable((Boolean) Vertx.currentContext().config().getValue("dummy"))
+      .orElse(Boolean.TRUE);
+  }
 
   public static Integer getPort() {
     return (Integer) getServerProperties().getValue("port");

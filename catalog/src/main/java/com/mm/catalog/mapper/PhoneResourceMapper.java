@@ -1,4 +1,4 @@
-package com.mm.catalog.handler.mapper;
+package com.mm.catalog.mapper;
 
 import com.mm.catalog.model.PhoneModel;
 import com.mm.catalog.handler.resource.PhonePriceResource;
