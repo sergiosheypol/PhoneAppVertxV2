@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "603ceac8b872e11cb95a4c40"
+  },
+  "name": "P40",
+  "img": "huawei.png",
+  "description": "Xiaomi Mi 8",
+  "price": {
+    "currency": "euro",
+    "value": 279.8999938964844
+  }
+},{
+  "_id": {
+    "$oid": "603ceac8b872e11cb95a4c41"
+  },
+  "name": "Mi 8",
+  "img": "xiaomi.png",
+  "description": "Xiaomi Mi 8",
+  "price": {
+    "currency": "euro",
+    "value": 189.89999389648438
+  }
+},{
+  "_id": {
+    "$oid": "603ceac8b872e11cb95a4c42"
+  },
+  "name": "S21",
+  "img": "samsung.png",
+  "description": "Samsung Galaxy S21",
+  "price": {
+    "currency": "euro",
+    "value": 988
+  }
+},{
+  "_id": {
+    "$oid": "603ceac8b872e11cb95a4c43"
+  },
+  "name": "iPhone",
+  "img": "iphone.png",
+  "description": "Apple iPhone 12",
+  "price": {
+    "currency": "euro",
+    "value": 999.989990234375
+  }
+}]
