@@ -1,0 +1,16 @@
+= Automation - Testing
+
+== How to run
+
+1. Run `npm install`
+1. Run `npm test`
+
+== Prerequisites
+Both microservices (catalog and order) must be running and accessible through `localhost`
+
+== Postman
+If you want to run these tests in Postman, simply import both the test battery contained in `test` and any of the envs in `env`
+
+== Docker
+It's not working yet because the container doesn't have access to the MS
+
