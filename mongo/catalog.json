@@ -1,7 +1,5 @@
 [{
-  "_id": {
-    "$oid": "603ceac8b872e11cb95a4c40"
-  },
+  "_id": "dda85294-7788-11eb-9439-0242ac130002",
   "name": "P40",
   "img": "huawei.png",
   "description": "Xiaomi Mi 8",
@@ -10,9 +8,7 @@
     "value": 279.8999938964844
   }
 },{
-  "_id": {
-    "$oid": "603ceac8b872e11cb95a4c41"
-  },
+  "_id": "d7ee984a-7788-11eb-9439-0242ac130002",
   "name": "Mi 8",
   "img": "xiaomi.png",
   "description": "Xiaomi Mi 8",
@@ -21,9 +17,7 @@
     "value": 189.89999389648438
   }
 },{
-  "_id": {
-    "$oid": "603ceac8b872e11cb95a4c42"
-  },
+  "_id": "cfd5b224-7788-11eb-9439-0242ac130002",
   "name": "S21",
   "img": "samsung.png",
   "description": "Samsung Galaxy S21",
@@ -32,9 +26,7 @@
     "value": 988
   }
 },{
-  "_id": {
-    "$oid": "603ceac8b872e11cb95a4c43"
-  },
+  "_id": "bb4b5d14-7787-11eb-9439-0242ac130002",
   "name": "iPhone",
   "img": "iphone.png",
   "description": "Apple iPhone 12",

@@ -16,32 +16,36 @@ public final class ConfigProperties {
     return (Integer) getServerProperties().getValue("port");
   }
 
-  public static String getDBHost() {
-    return (String) getDBProperties().getValue("host");
+  public static String getPGHost() {
+    return (String) getPGProperties().getValue("host");
   }
 
-  public static Integer getDBPort() {
-    return (Integer) getDBProperties().getValue("port");
+  public static Integer getPGPort() {
+    return (Integer) getPGProperties().getValue("port");
   }
 
-  public static String getDBName() {
-    return (String) getDBProperties().getValue("name");
+  public static String getPGName() {
+    return (String) getPGProperties().getValue("name");
   }
 
-  public static String getDBUser() {
-    return (String) getDBProperties().getValue("user");
+  public static String getPGUser() {
+    return (String) getPGProperties().getValue("user");
   }
 
-  public static String getDBPassword() {
-    return (String) getDBProperties().getValue("password");
+  public static String getPGPassword() {
+    return (String) getPGProperties().getValue("password");
   }
 
   private static JsonObject getServerProperties() {
     return (JsonObject) Vertx.currentContext().config().getValue("server");
   }
 
-  private static JsonObject getDBProperties() {
-    return (JsonObject) Vertx.currentContext().config().getValue("db");
+  private static JsonObject getPGProperties() {
+    return (JsonObject) Vertx.currentContext().config().getValue("postgres");
+  }
+
+  public static JsonObject getMongoProperties() {
+    return (JsonObject) Vertx.currentContext().config().getValue("mongo");
   }
 
 }

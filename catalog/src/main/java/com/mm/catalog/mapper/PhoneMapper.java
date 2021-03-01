@@ -34,4 +34,17 @@ public class PhoneMapper {
         .build())
       .build();
   }
+
+  public PhoneModel toModelFromMongo(final JsonObject json) {
+    return PhoneModel.builder()
+      .id(UUID.fromString(json.getString("_id")))
+      .name(json.getString("name"))
+      .description(json.getString("description"))
+      .img(json.getString("img"))
+      .price(PhonePriceModel.builder()
+        .value(json.getJsonObject("price").getDouble("value"))
+        .currency(json.getJsonObject("price").getString("currency"))
+        .build())
+      .build();
+  }
 }
