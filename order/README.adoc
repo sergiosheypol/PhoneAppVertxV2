@@ -1,15 +1,23 @@
-= Catalog
+= Order
 
 image:https://img.shields.io/badge/vert.x-4.0.2-purple.svg[link="https://vertx.io"]
 
-The app starts on the port 80
+The app starts on the port 81
 
 == Endpoints
-* GET: /catalog
+* POST: /order
 
 == Example cURL
+
 ```
-curl --location --request GET 'localhost:80/catalog'
+curl --location --request POST 'localhost:81/order' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "customerName": "John",
+    "customerSurname": "Doe",
+    "customerEmail": "a@a",
+    "phoneId": "dda85294-7788-11eb-9439-0242ac130002"
+}'
 ```
 
 == Prerequisites
