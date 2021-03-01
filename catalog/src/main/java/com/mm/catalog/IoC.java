@@ -5,6 +5,7 @@ import com.mm.catalog.mapper.PhoneMapper;
 import com.mm.catalog.repository.CatalogRepository;
 import com.mm.catalog.repository.dummy.DummyCatalogRepository;
 import com.mm.catalog.repository.mongo.MongoCatalogRepository;
+import com.mm.catalog.repository.postgres.PostgresCatalogRepository;
 import com.mm.catalog.router.CatalogRouter;
 import com.mm.catalog.service.CatalogService;
 import com.mm.mongo.MongoConfig;
@@ -43,11 +44,13 @@ public final class IoC {
   }
 
   private CatalogRepository injectRepository() {
-    if (ConfigProperties.isDummyEnabled()) {
-      return new DummyCatalogRepository();
-    } else {
-//      return new PostgresCatalogRepository(this.postgres, this.mapper);
-      return new MongoCatalogRepository(this.mongo, this.mapper);
+    switch (ConfigProperties.getRepositoryName()) {
+      case "postgres":
+        return new PostgresCatalogRepository(this.postgres, this.mapper);
+      case "mongo":
+        return new MongoCatalogRepository(this.mongo, this.mapper);
+      default:
+        return new DummyCatalogRepository();
     }
   }
 }

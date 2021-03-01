@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public final class ConfigProperties {
 
-  public static Boolean isDummyEnabled() {
-    return Optional.ofNullable((Boolean) Vertx.currentContext().config().getValue("dummy"))
-      .orElse(Boolean.TRUE);
+  public static String getRepositoryName() {
+    return Optional.ofNullable((String) Vertx.currentContext().config().getValue("repository"))
+      .orElse("dummy");
   }
 
   public static Integer getPort() {
