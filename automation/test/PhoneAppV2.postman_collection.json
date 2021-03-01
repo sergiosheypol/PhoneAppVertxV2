@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "e63992af-1e4f-4de4-9428-55865520fe49",
+		"name": "PhoneAppV2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "catalog",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",",
+							"    \"$id\": \"http://example.com/example.json\",",
+							"    \"type\": \"array\",",
+							"    \"examples\": [",
+							"        [",
+							"            {",
+							"                \"id\": \"dda85294-7788-11eb-9439-0242ac130002\",",
+							"                \"name\": \"P40\",",
+							"                \"img\": \"huawei.png\",",
+							"                \"description\": \"Xiaomi Mi 8\",",
+							"                \"price\": {",
+							"                    \"currency\": \"euro\",",
+							"                    \"value\": 279.8999938964844",
+							"                }",
+							"            },",
+							"            {",
+							"                \"id\": \"d7ee984a-7788-11eb-9439-0242ac130002\",",
+							"                \"name\": \"Mi 8\",",
+							"                \"img\": \"xiaomi.png\",",
+							"                \"description\": \"Xiaomi Mi 8\",",
+							"                \"price\": {",
+							"                    \"currency\": \"euro\",",
+							"                    \"value\": 189.89999389648438",
+							"                }",
+							"            }",
+							"        ]",
+							"    ],",
+							"    \"additionalItems\": true,",
+							"    \"items\": {",
+							"        \"$id\": \"#/items\",",
+							"        \"anyOf\": [",
+							"            {",
+							"                \"$id\": \"#/items/anyOf/0\",",
+							"                \"type\": \"object\",",
+							"                \"examples\": [",
+							"                    {",
+							"                        \"id\": \"dda85294-7788-11eb-9439-0242ac130002\",",
+							"                        \"name\": \"P40\",",
+							"                        \"img\": \"huawei.png\",",
+							"                        \"description\": \"Xiaomi Mi 8\",",
+							"                        \"price\": {",
+							"                            \"currency\": \"euro\",",
+							"                            \"value\": 279.8999938964844",
+							"                        }",
+							"                    }",
+							"                ],",
+							"                \"required\": [",
+							"                    \"id\",",
+							"                    \"name\",",
+							"                    \"img\",",
+							"                    \"description\",",
+							"                    \"price\"",
+							"                ],",
+							"                \"properties\": {",
+							"                    \"id\": {",
+							"                        \"$id\": \"#/items/anyOf/0/properties/id\",",
+							"                        \"type\": \"string\",",
+							"                        \"examples\": [",
+							"                            \"dda85294-7788-11eb-9439-0242ac130002\"",
+							"                        ]",
+							"                    },",
+							"                    \"name\": {",
+							"                        \"$id\": \"#/items/anyOf/0/properties/name\",",
+							"                        \"type\": \"string\",",
+							"                        \"examples\": [",
+							"                            \"P40\"",
+							"                        ]",
+							"                    },",
+							"                    \"img\": {",
+							"                        \"$id\": \"#/items/anyOf/0/properties/img\",",
+							"                        \"type\": \"string\",",
+							"                        \"examples\": [",
+							"                            \"huawei.png\"",
+							"                        ]",
+							"                    },",
+							"                    \"description\": {",
+							"                        \"$id\": \"#/items/anyOf/0/properties/description\",",
+							"                        \"type\": \"string\",",
+							"                        \"examples\": [",
+							"                            \"Xiaomi Mi 8\"",
+							"                        ]",
+							"                    },",
+							"                    \"price\": {",
+							"                        \"$id\": \"#/items/anyOf/0/properties/price\",",
+							"                        \"type\": \"object\",",
+							"                        \"examples\": [",
+							"                            {",
+							"                                \"currency\": \"euro\",",
+							"                                \"value\": 279.8999938964844",
+							"                            }",
+							"                        ],",
+							"                        \"required\": [",
+							"                            \"currency\",",
+							"                            \"value\"",
+							"                        ],",
+							"                        \"properties\": {",
+							"                            \"currency\": {",
+							"                                \"$id\": \"#/items/anyOf/0/properties/price/properties/currency\",",
+							"                                \"type\": \"string\",",
+							"                                \"examples\": [",
+							"                                    \"euro\"",
+							"                                ]",
+							"                            },",
+							"                            \"value\": {",
+							"                                \"$id\": \"#/items/anyOf/0/properties/price/properties/value\",",
+							"                                \"type\": \"number\",",
+							"                                \"examples\": [",
+							"                                    279.8999938964844",
+							"                                ]",
+							"                            }",
+							"                        },",
+							"                        \"additionalProperties\": true",
+							"                    }",
+							"                },",
+							"                \"additionalProperties\": true",
+							"            }",
+							"        ]",
+							"    }",
+							"};",
+							"",
+							"pm.test('Schema is valid', function () {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});",
+							"",
+							"pm.globals.set(\"phoneId\", pm.response.json()[0].id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlCatalog}}/catalog",
+					"host": [
+						"{{urlCatalog}}"
+					],
+					"path": [
+						"catalog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",",
+							"    \"$id\": \"http://example.com/example.json\",",
+							"    \"type\": \"object\",",
+							"    \"examples\": [",
+							"        {",
+							"            \"id\": \"62dcba08-e88d-4d96-82aa-ba99e99936c8\"",
+							"        }",
+							"    ],",
+							"    \"required\": [",
+							"        \"id\"",
+							"    ],",
+							"    \"properties\": {",
+							"        \"id\": {",
+							"            \"$id\": \"#/properties/id\",",
+							"            \"type\": \"string\",",
+							"            \"examples\": [",
+							"                \"62dcba08-e88d-4d96-82aa-ba99e99936c8\"",
+							"            ]",
+							"        }",
+							"    },",
+							"    \"additionalProperties\": true",
+							"};",
+							"",
+							"pm.test('Schema is valid', function () {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerName\": \"eeeeee\",\n    \"customerSurname\": \"eaaaaaa\",\n    \"customerEmail\": \"a@a\",\n    \"phoneId\": \"{{phoneId}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlOrder}}/order",
+					"host": [
+						"{{urlOrder}}"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

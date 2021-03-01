@@ -1,0 +1,13 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "Automation for PhoneAppVertxV2",
+  "scripts": {
+    "test": "npx newman run test/PhoneAppV2.postman_collection.json -e env/local.postman_environment.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^5.2.2"
+  }
+}
