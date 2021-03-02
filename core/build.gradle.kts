@@ -14,7 +14,6 @@ val vertxVersion = "4.0.2"
 
 
 dependencies {
-
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-rx-java2")
   implementation("io.vertx:vertx-web")

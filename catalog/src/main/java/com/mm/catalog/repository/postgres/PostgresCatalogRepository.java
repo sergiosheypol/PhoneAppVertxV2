@@ -1,9 +1,10 @@
 package com.mm.catalog.repository.postgres;
 
+import com.mm.catalog.mapper.PhoneMapper;
 import com.mm.catalog.model.PhoneModel;
 import com.mm.catalog.repository.CatalogRepository;
-import com.mm.catalog.repository.postgres.mapper.PostgresCatalogMapper;
 import com.mm.postgres.PostgresConfig;
+import com.mm.postgres.QueryGenerator;
 import io.reactivex.Flowable;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
@@ -14,9 +15,9 @@ public class PostgresCatalogRepository implements CatalogRepository {
   private static final Logger LOGGER = LoggerFactory.getLogger(PostgresCatalogRepository.class);
 
   private final PostgresConfig postgres;
-  private final PostgresCatalogMapper mapper;
+  private final PhoneMapper mapper;
 
-  public PostgresCatalogRepository(PostgresConfig postgres, PostgresCatalogMapper mapper) {
+  public PostgresCatalogRepository(PostgresConfig postgres, PhoneMapper mapper) {
     this.postgres = postgres;
     this.mapper = mapper;
   }

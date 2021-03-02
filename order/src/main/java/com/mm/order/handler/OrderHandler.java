@@ -34,7 +34,11 @@ public class OrderHandler {
       .flatMap(service::purchase)
       .map(mapper::toResource)
       .subscribe(rs -> ctx.response()
-        .putHeader("Content-Type", "application/json")
-        .end(Json.encodePrettily(rs)));
+          .putHeader("Content-Type", "application/json")
+          .end(Json.encodePrettily(rs)),
+        err -> {
+          ctx.response().setStatusCode(500).end();
+          LOGGER.error(String.format("Error saving order: %s", err.getMessage()), err);
+        });
   }
 }

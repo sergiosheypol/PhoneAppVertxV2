@@ -1,9 +1,37 @@
+############################
+# Server
+############################
 server:
   port: 80
-db:
+
+############################
+# Postgres
+############################
+postgres:
   host: localhost
   port: 5432
   name: mm
   user: mm
   password: mm
-dummy: false
+
+############################
+# Mongo>
+############################
+mongo:
+  host: localhost
+  port: 27017
+  username: mm
+  password: mm
+  db_name: mm
+  authSource: admin
+  maxPoolSize: 5
+  connectTimeoutMS: 3000
+  socketTimeoutMS: 1000
+
+############################
+# IoC
+############################
+
+# dummy // mongo // postgres
+repository: mongo
+

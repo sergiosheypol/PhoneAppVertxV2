@@ -7,41 +7,45 @@ import java.util.Optional;
 
 public final class ConfigProperties {
 
-  public static Boolean isDummyEnabled() {
-    return Optional.ofNullable((Boolean) Vertx.currentContext().config().getValue("dummy"))
-      .orElse(Boolean.TRUE);
+  public static String getRepositoryName() {
+    return Optional.ofNullable((String) Vertx.currentContext().config().getValue("repository"))
+      .orElse("dummy");
   }
 
   public static Integer getPort() {
     return (Integer) getServerProperties().getValue("port");
   }
 
-  public static String getDBHost() {
-    return (String) getDBProperties().getValue("host");
+  public static String getPGHost() {
+    return (String) getPGProperties().getValue("host");
   }
 
-  public static Integer getDBPort() {
-    return (Integer) getDBProperties().getValue("port");
+  public static Integer getPGPort() {
+    return (Integer) getPGProperties().getValue("port");
   }
 
-  public static String getDBName() {
-    return (String) getDBProperties().getValue("name");
+  public static String getPGName() {
+    return (String) getPGProperties().getValue("name");
   }
 
-  public static String getDBUser() {
-    return (String) getDBProperties().getValue("user");
+  public static String getPGUser() {
+    return (String) getPGProperties().getValue("user");
   }
 
-  public static String getDBPassword() {
-    return (String) getDBProperties().getValue("password");
+  public static String getPGPassword() {
+    return (String) getPGProperties().getValue("password");
   }
 
   private static JsonObject getServerProperties() {
     return (JsonObject) Vertx.currentContext().config().getValue("server");
   }
 
-  private static JsonObject getDBProperties() {
-    return (JsonObject) Vertx.currentContext().config().getValue("db");
+  private static JsonObject getPGProperties() {
+    return (JsonObject) Vertx.currentContext().config().getValue("postgres");
+  }
+
+  public static JsonObject getMongoProperties() {
+    return (JsonObject) Vertx.currentContext().config().getValue("mongo");
   }
 
 }
