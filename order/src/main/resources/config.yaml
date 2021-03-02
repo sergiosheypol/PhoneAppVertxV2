@@ -33,4 +33,4 @@ mongo:
 ############################
 
 # mongo // postgres (default)
-repository: postgres
+repository: mongo
