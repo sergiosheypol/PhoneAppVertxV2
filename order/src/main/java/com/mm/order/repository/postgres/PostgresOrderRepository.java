@@ -1,6 +1,7 @@
-package com.mm.order.repository;
+package com.mm.order.repository.postgres;
 
 import com.mm.order.model.OrderModel;
+import com.mm.order.repository.OrderRepository;
 import com.mm.postgres.PostgresConfig;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
@@ -14,7 +15,7 @@ public class PostgresOrderRepository implements OrderRepository {
 
   private final PostgresConfig postgres;
 
-  public PostgresOrderRepository(PostgresConfig postgres) {
+  public PostgresOrderRepository(final PostgresConfig postgres) {
     this.postgres = postgres;
   }
 

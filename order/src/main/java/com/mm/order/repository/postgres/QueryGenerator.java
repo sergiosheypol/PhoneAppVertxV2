@@ -1,4 +1,4 @@
-package com.mm.order.repository;
+package com.mm.order.repository.postgres;
 
 public final class QueryGenerator {
   public static String save() {
