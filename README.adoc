@@ -7,6 +7,7 @@ The following apps in this repo have been built using vert.x
 == Packages included
 * Catalog: handles the catalog retrieval
 * Order: processes the purchases
-* DB: configures a Docker demo DB
+* Postgres: configures a Docker demo Postgres DB
+* Mongo: configures a Docker demo MongoDB
 
 Check each package to run the different microservices

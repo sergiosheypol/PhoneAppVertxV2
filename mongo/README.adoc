@@ -1,0 +1,16 @@
+= MONGO
+
+== How to run
+Simply run:
+```
+docker-compose up
+```
+
+This will boot a MongoDB container
+
+== How to migrate data
+Use MongoDB Atlas:
+
+1. Create a DB called `mm`
+1. Create two collections: `catalog` and `order`
+1. Import `catalog.json` into `catalog`

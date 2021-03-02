@@ -1,4 +1,4 @@
-= DB
+= POSTGRES
 
 == How to execute migrations
 Simply run:
