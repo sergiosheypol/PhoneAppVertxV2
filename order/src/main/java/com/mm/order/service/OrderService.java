@@ -13,7 +13,6 @@ public class OrderService {
   }
 
   public Single<OrderModel> purchase(final OrderModel model) {
-
     this.repository.save(model);
     return Single.just(model);
   }

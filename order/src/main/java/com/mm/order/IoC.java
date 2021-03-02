@@ -38,18 +38,16 @@ public final class IoC {
     this.mapper = new OrderMapper();
     this.objectMapper = new ObjectMapper();
     this.postgres = new PostgresConfig();
-    this.repository = new PostgresOrderRepository(this.postgres);
+    this.repository = this.injectRepository();
     this.service = new OrderService(this.repository);
     this.handler = new OrderHandler(this.service, this.objectMapper, this.mapper);
     this.router = new OrderRouter(this.handler);
   }
 
   private OrderRepository injectRepository() {
-    switch (ConfigProperties.getRepositoryName()) {
-      case "mongo":
-        return new MongoOrderRepository(this.mongo);
-      default:
-        return new PostgresOrderRepository(this.postgres);
+    if (ConfigProperties.getRepositoryName().equals("mongo")) {
+      return new MongoOrderRepository(this.mongo, mapper);
     }
+    return new PostgresOrderRepository(this.postgres, mapper);
   }
 }

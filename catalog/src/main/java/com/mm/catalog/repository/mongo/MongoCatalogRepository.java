@@ -9,6 +9,8 @@ import io.vertx.core.json.JsonObject;
 
 public class MongoCatalogRepository implements CatalogRepository {
 
+  public static final String CATALOG_COLLECTION = "catalog";
+
   private final MongoConfig mongoConfig;
   private final PhoneMapper mapper;
 
@@ -19,8 +21,9 @@ public class MongoCatalogRepository implements CatalogRepository {
 
   @Override
   public Flowable<PhoneModel> getAll() {
+
     return mongoConfig.getMongoClient()
-      .findBatch("catalog", new JsonObject())
+      .findBatch(CATALOG_COLLECTION, new JsonObject())
       .toFlowable()
       .map(mapper::toModelFromMongo);
   }
