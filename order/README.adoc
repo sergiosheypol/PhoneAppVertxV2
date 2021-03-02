@@ -1,0 +1,41 @@
+= Order
+
+image:https://img.shields.io/badge/vert.x-4.0.2-purple.svg[link="https://vertx.io"]
+
+The app starts on the port 81
+
+== Endpoints
+* POST: /order
+
+== Example cURL
+
+```
+curl --location --request POST 'localhost:81/order' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "customerName": "John",
+    "customerSurname": "Doe",
+    "customerEmail": "a@a",
+    "phoneId": "dda85294-7788-11eb-9439-0242ac130002"
+}'
+```
+
+== Prerequisites
+Check ``db`` repo to execute the required migrations
+
+== Building
+
+To launch your tests:
+```
+./gradlew clean test
+```
+
+To package your application:
+```
+./gradlew clean assemble
+```
+
+To run your application:
+```
+./gradlew clean run
+```

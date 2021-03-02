@@ -17,8 +17,8 @@ repositories {
 val vertxVersion = "4.0.2"
 val junitJupiterVersion = "5.7.0"
 
-val mainVerticleName = "com.mm.order.MainVerticle"
-val launcherClassName = "io.vertx.core.Launcher"
+val mainVerticleName = "com.mm.order.OrderVerticle"
+val launcherClassName = "com.mm.order.App"
 
 val watchForChange = "src/**/*"
 val doOnChange = "${projectDir}/gradlew classes"
@@ -28,11 +28,27 @@ application {
 }
 
 dependencies {
+  // Lombok
+  compileOnly("org.projectlombok:lombok:1.18.16")
+  annotationProcessor ("org.projectlombok:lombok:1.18.16")
+  testCompileOnly ("org.projectlombok:lombok:1.18.16")
+  testAnnotationProcessor ("org.projectlombok:lombok:1.18.16")
+  // End lombok
+
+  // Jackson
+  implementation ("com.fasterxml.jackson.core", "jackson-databind",  "2.0.1")
+
+  //Internal
+  compile(project(":core"))
+
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-rx-java2")
   implementation("io.vertx:vertx-web")
+  compile("io.vertx:vertx-pg-client:$vertxVersion")
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+  implementation("io.vertx:vertx-config:$vertxVersion")
+  implementation("io.vertx:vertx-config-yaml:$vertxVersion")
 }
 
 java {

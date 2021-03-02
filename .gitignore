@@ -185,5 +185,8 @@ nbdist/
 !.vscode/extensions.json
 
 .idea
-.gradle
+**/.gradle
 **/build
+
+**/node_modules
+**/package-lock.json

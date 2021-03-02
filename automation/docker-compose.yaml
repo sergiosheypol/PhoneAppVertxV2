@@ -1,0 +1,11 @@
+# Tests not passing because the container is unable to reach the MS
+
+version: '3.1'
+
+services:
+  node:
+    image: postman/newman
+    volumes:
+      - ./test:/etc/newman
+      - ./env:/etc/newman/env
+    command: run PhoneAppV2.postman_collection.json -e "/etc/newman/env/local.postman_environment.json"
