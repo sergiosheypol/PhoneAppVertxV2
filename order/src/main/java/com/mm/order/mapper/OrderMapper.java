@@ -21,9 +21,9 @@ public class OrderMapper {
       .build();
   }
 
-  public OrderRSResource toResource(final OrderModel model) {
+  public OrderRSResource toResource(final UUID id) {
     return OrderRSResource.builder()
-      .id(model.getId())
+      .id(id)
       .build();
   }
 

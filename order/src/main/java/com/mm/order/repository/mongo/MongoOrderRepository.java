@@ -4,8 +4,11 @@ import com.mm.mongo.MongoConfig;
 import com.mm.order.mapper.OrderMapper;
 import com.mm.order.model.OrderModel;
 import com.mm.order.repository.OrderRepository;
+import io.reactivex.Single;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
+
+import java.util.UUID;
 
 public class MongoOrderRepository implements OrderRepository {
 
@@ -22,10 +25,12 @@ public class MongoOrderRepository implements OrderRepository {
 
 
   @Override
-  public void save(final OrderModel model) {
-    mongoConfig.getMongoClient()
+  public Single<UUID> save(final OrderModel model) {
+    return mongoConfig.getMongoClient()
       .rxInsert(ORDER_COLLECTION, this.mapper.toJson(model))
-      .doOnSuccess(r -> LOGGER.info(String.format("Saved successfully %s", r)))
-      .subscribe();
+      .doOnComplete(() -> LOGGER.info("Item saved successfully"))
+      .doOnError(t -> LOGGER.error(String.format("Error saving object: %s", t.getMessage())))
+      .toSingle(model.getId().toString())
+      .map(UUID::fromString);
   }
 }
