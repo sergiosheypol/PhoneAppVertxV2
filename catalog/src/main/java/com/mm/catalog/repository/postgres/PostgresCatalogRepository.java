@@ -4,6 +4,7 @@ import com.mm.catalog.mapper.PhoneMapper;
 import com.mm.catalog.model.PhoneModel;
 import com.mm.catalog.repository.CatalogRepository;
 import com.mm.postgres.PostgresConfig;
+import com.mm.postgres.QueryGenerator;
 import io.reactivex.Flowable;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
