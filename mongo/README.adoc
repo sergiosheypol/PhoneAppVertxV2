@@ -9,7 +9,7 @@ docker-compose up
 This will boot a MongoDB container
 
 == How to migrate data
-Use MongoDB Atlas:
+Use MongoDB Compass:
 
 1. Create a DB called `mm`
 1. Create two collections: `catalog` and `order`

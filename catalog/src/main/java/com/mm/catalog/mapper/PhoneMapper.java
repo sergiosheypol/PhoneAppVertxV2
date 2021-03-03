@@ -1,9 +1,9 @@
 package com.mm.catalog.mapper;
 
 import com.mm.catalog.model.PhoneModel;
+import com.mm.catalog.model.PhonePriceModel;
 import com.mm.catalog.handler.resource.PhonePriceResource;
 import com.mm.catalog.handler.resource.PhoneResource;
-import com.mm.catalog.model.PhonePriceModel;
 import io.vertx.core.json.JsonObject;
 
 import java.util.UUID;

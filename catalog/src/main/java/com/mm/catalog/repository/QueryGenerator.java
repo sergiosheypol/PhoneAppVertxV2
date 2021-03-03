@@ -1,4 +1,4 @@
-package com.mm.postgres;
+package com.mm.catalog.repository;
 
 public final class QueryGenerator {
 
@@ -7,8 +7,4 @@ public final class QueryGenerator {
       "inner join currency on currency.id = catalog.currencyid";
   }
 
-  public static String save() {
-    return "INSERT INTO \"order\" (id, customer_name, customer_surname, customer_email, phone_id)\n" +
-      "VALUES(($1), ($2), ($3), ($4), ($5))";
-  }
 }

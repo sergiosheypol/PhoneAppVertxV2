@@ -1,0 +1,32 @@
+quarkus:
+  ############################
+  # Server
+  ############################
+  http:
+    port: 8888
+
+  ############################
+  # Postgres
+  ############################
+  datasource:
+    db-kind: postgresql
+    reactive:
+      url: postgresql://localhost:5432/mm
+    username: mm
+    password: mm
+
+  ############################
+  # Mongo>
+  ############################n
+  mongodb:
+    connect-timeout: 3000
+    max-pool-size: 5
+    connection-string: mongodb://mm:mm@localhost:27017/mm?authSource=admin
+
+############################
+# IoC
+############################
+
+# dummy // mongo // postgres
+repository: mongo
+

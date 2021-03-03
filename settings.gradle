@@ -1,6 +1,17 @@
+pluginManagement {
+  repositories {
+    mavenCentral()
+    mavenLocal()
+    gradlePluginPortal()
+  }
+  plugins {
+    id 'io.quarkus' version "${quarkusPluginVersion}"
+  }
+}
+
 rootProject.name = "PhoneAppVertxV2"
 
 include 'catalog'
 include 'order'
 include 'core'
-
+include 'catalogQuarkus'

@@ -8,7 +8,7 @@ public class CatalogRouter {
 
   private final CatalogHandler handler;
 
-  public CatalogRouter(CatalogHandler handler) {
+  public CatalogRouter(final CatalogHandler handler) {
     this.handler = handler;
   }
 

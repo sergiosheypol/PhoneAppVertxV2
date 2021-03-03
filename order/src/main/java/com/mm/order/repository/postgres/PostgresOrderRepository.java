@@ -4,7 +4,6 @@ import com.mm.order.mapper.OrderMapper;
 import com.mm.order.model.OrderModel;
 import com.mm.order.repository.OrderRepository;
 import com.mm.postgres.PostgresConfig;
-import com.mm.postgres.QueryGenerator;
 import io.reactivex.Single;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;

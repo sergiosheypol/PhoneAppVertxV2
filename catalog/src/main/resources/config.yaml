@@ -33,5 +33,5 @@ mongo:
 ############################
 
 # dummy // mongo // postgres
-repository: mongo
+repository: postgres
 

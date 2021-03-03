@@ -1,7 +1,7 @@
 package com.mm.catalog.repository.mongo;
 
-import com.mm.catalog.mapper.PhoneMapper;
 import com.mm.catalog.model.PhoneModel;
+import com.mm.catalog.mapper.PhoneMapper;
 import com.mm.catalog.repository.CatalogRepository;
 import com.mm.mongo.MongoConfig;
 import io.reactivex.Flowable;
@@ -21,7 +21,6 @@ public class MongoCatalogRepository implements CatalogRepository {
 
   @Override
   public Flowable<PhoneModel> getAll() {
-
     return mongoConfig.getMongoClient()
       .findBatch(CATALOG_COLLECTION, new JsonObject())
       .toFlowable()

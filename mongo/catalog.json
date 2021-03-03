@@ -5,7 +5,7 @@
   "description": "Xiaomi Mi 8",
   "price": {
     "currency": "euro",
-    "value": 279.8999938964844
+    "value": 279.89
   }
 },{
   "_id": "d7ee984a-7788-11eb-9439-0242ac130002",
@@ -14,7 +14,7 @@
   "description": "Xiaomi Mi 8",
   "price": {
     "currency": "euro",
-    "value": 189.89999389648438
+    "value": 189.89
   }
 },{
   "_id": "cfd5b224-7788-11eb-9439-0242ac130002",
@@ -23,7 +23,7 @@
   "description": "Samsung Galaxy S21",
   "price": {
     "currency": "euro",
-    "value": 988
+    "value": 988.90
   }
 },{
   "_id": "bb4b5d14-7787-11eb-9439-0242ac130002",
@@ -32,6 +32,6 @@
   "description": "Apple iPhone 12",
   "price": {
     "currency": "euro",
-    "value": 999.989990234375
+    "value": 999.98
   }
 }]
