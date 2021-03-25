@@ -24,6 +24,7 @@ public class CatalogHandler {
     this.mapper = mapper;
   }
 
+  @SuppressWarnings("CheckReturnValue")
   public void getCatalog(final RoutingContext ctx) {
     this.service.getAll()
       .map(mapper::toResource)

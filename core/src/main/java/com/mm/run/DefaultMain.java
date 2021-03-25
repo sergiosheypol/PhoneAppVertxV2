@@ -15,6 +15,7 @@ public abstract class DefaultMain {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(DefaultMain.class);
 
+  @SuppressWarnings("CheckReturnValue")
   public static void run(final Verticle v) {
     LOGGER.info("\n----------------------- \n Booting app\n-----------------------");
 
