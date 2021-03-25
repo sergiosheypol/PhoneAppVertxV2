@@ -12,6 +12,7 @@ public class CatalogVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(CatalogVerticle.class);
 
   @Override
+  @SuppressWarnings("CheckReturnValue")
   public void start(final Promise<Void> startPromise) {
 
     HttpServer httpServer = vertx.createHttpServer();

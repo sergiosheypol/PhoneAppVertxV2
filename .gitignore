@@ -190,3 +190,6 @@ nbdist/
 
 **/node_modules
 **/package-lock.json
+
+
+bazel-**
