@@ -7,6 +7,7 @@ import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.reactivex.core.AbstractVerticle;
 import io.vertx.reactivex.core.http.HttpServer;
 
+@SuppressWarnings("CheckReturnValue")
 public class OrderVerticle extends AbstractVerticle {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(OrderVerticle.class);
