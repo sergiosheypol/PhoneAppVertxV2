@@ -11,6 +11,7 @@ import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.ext.web.RoutingContext;
 
+@SuppressWarnings("CheckReturnValue")
 public class OrderHandler {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(OrderHandler.class);
