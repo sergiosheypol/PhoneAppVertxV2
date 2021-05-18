@@ -10,6 +10,8 @@ import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.reactivex.sqlclient.Row;
 
+import java.util.Optional;
+
 public class PostgresCatalogRepository implements CatalogRepository {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(PostgresCatalogRepository.class);

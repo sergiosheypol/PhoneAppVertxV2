@@ -1,6 +1,7 @@
 package com.mm.order;
 
 import com.mm.properties.ConfigProperties;
+import io.reactivex.Completable;
 import io.vertx.core.Promise;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
@@ -13,19 +14,18 @@ public class OrderVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(OrderVerticle.class);
 
   @Override
-  public void start(final Promise<Void> startPromise) {
-
+  public Completable rxStart() {
     HttpServer httpServer = vertx.createHttpServer();
 
-    httpServer.requestHandler(IoC.getInstance().router.configureRouting())
+    return httpServer.requestHandler(IoC.getInstance().router.configureRouting())
       .rxListen(ConfigProperties.getPort())
-      .subscribe(server -> {
-          LOGGER.info(String.format("Server listening on port {%s}", server.actualPort()));
-          startPromise.complete();
-        },
-        failure -> {
-          LOGGER.error(failure.getMessage());
-          startPromise.fail(failure);
-        });
+      .doOnSuccess(server -> LOGGER.info(String.format("Server listening on port {%s}", server.actualPort())))
+      .ignoreElement();
+  }
+
+  @Override
+  public void start(final Promise<Void> startPromise) {
+
+
   }
 }

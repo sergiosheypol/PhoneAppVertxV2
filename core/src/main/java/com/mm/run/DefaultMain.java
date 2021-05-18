@@ -20,12 +20,10 @@ public abstract class DefaultMain {
     LOGGER.info("\n----------------------- \n Booting app\n-----------------------");
 
     // Read properties
-    config(Vertx.vertx()).subscribe(json -> {
-      // Deploy verticle
-      Vertx.currentContext().owner().rxDeployVerticle(v, new DeploymentOptions().setConfig(json))
-        .subscribe(id -> LOGGER.info(String.format("Verticle with id {%s} deployed successfully", id)),
-          err -> LOGGER.error("Error deploying verticle", err));
-    });
+    config(Vertx.vertx()).flatMap(json -> Vertx.currentContext().owner()
+      .rxDeployVerticle(v, new DeploymentOptions().setConfig(json)))
+      .subscribe(id -> LOGGER.info(String.format("Verticle with id {%s} deployed successfully", id)),
+        err -> LOGGER.error("Error deploying verticle", err));
   }
 
   private static Single<JsonObject> config(final Vertx vertx) {
